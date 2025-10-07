@@ -11,7 +11,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
         .filter(Boolean);
 
     return (
-        <section className="mr-8 my-6 p-6 bg-scroll border-6 border-dark-brown flex flex-1 flex-col items-center overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
+        <section className="px-6 py-4 bg-scroll border-6 border-dark-brown/90 w-full" style={{ scrollbarWidth: 'none' }}>
             <div className="flex flex-col w-full h-60 text-3xl">
                 <div className="flex items-center">
                     <img src="/decor/mortar_24x24.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />

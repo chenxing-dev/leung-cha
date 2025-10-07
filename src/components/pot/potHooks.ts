@@ -25,7 +25,7 @@ export function useBoiling(potHerbs: string[], isFireOn: boolean, isBoiled: bool
 
 export function usePotTip(potHerbs: string[], isFireOn: boolean, isBoiled: boolean) {
     if (!potHerbs || potHerbs.length === 0) {
-        return "請從左側藥材欄\n拖拽藥材到煲內";
+        return "請從左側藥材欄\n拖拽藥材到壺內";
     } else if (!isFireOn) {
         return "可繼續放藥材\n或點擊爐點火煎煮";
     } else if (isBoiled) {

@@ -26,7 +26,7 @@ export function HerbItem({ herb }: { herb: Herb }) {
 
     return (
         <li ref={liRef}
-            className={`pl-4 pr-8 font-bold hover:bg-gold transition cursor-grab flex items-center ${isDragging ? 'opacity-40' : ''}`}>
+            className={`pl-4 font-bold hover:bg-gold transition cursor-grab flex items-center ${isDragging ? 'opacity-40' : ''}`}>
             <div className="w-32 aspect-square mr-2">
                 <img
                     ref={imgRef}

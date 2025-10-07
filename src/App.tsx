@@ -37,21 +37,50 @@ function App() {
         </aside>
         <div id="divider"
           className="border-x-6 border-light-brown w-4 bg-scroll-border"></div>
-        <main className="flex-1 flex overflow-hidden relative bg-scroll" style={{
-          backgroundImage: `linear-gradient(to right, var(--color-scroll-border) 6px, transparent 2px), linear-gradient(to bottom, var(--color-scroll-border) 6px, transparent 2px)`,
-          backgroundSize: '96px 96px',
-          backgroundPosition: 'left 60px top 18px',
-        }}>
+        <main className="flex-1 flex overflow-hidden relative bg-scroll">
+          {/* Perspective ground grid overlay */}
+          <div className="absolute bottom-0 w-full h-full bg-gold">
+            <svg width="100%" height="100%" viewBox="0 0 100 96" preserveAspectRatio="none" className="opacity-30">
+              {[...Array(6)].map((_, i) => {
+                // y: 66 (horizon) to 96 (bottom), spacing evenly
+                const y = 66 + (30 * i) / 5;
+                return <line key={i} x1={0} y1={y} x2={100} y2={y} stroke="var(--color-light-brown)" strokeWidth="0.7" />;
+              })}
+              {/* Vertical perspective lines */}
+              {[...Array(12)].map((_, i) => {
+                // x: -16 (left) to 136 (right), converge toward center at top
+                const x = -16 + (152 * i) / 11;
+                return <polyline
+                  key={i + 20}
+                  points={`24,0 ${x},96`}
+                  stroke="var(--color-light-brown)"
+                  strokeWidth="0.7"
+                  fill="none"
+                />;
+              })}
+            </svg>
+          </div>
+          {/* Square grid background */}
+          <div className="absolute top-0 w-full h-3/4"
+            style={{
+              backgroundImage: `linear-gradient(to right, var(--color-scroll-border) 6px, transparent 2px), linear-gradient(to bottom, var(--color-scroll-border) 6px, transparent 2px)`,
+              backgroundSize: '85px 85px',
+              backgroundPosition: 'left 36px bottom 4px',
+              backgroundColor: 'var(--color-scroll)',
+            }}></div>
           <div className="flex flex-col items-center justify-around w-1/2 relative">
-            <div className="">
-              <h2 className="px-6 bg-scroll w-fit border-6 border-cinnabar text-cinnabar font-black text-7xl leading-normal">涼茶鋪</h2>
+            <div>
+              <h2 className="px-13 bg-scroll w-fit border-6 border-cinnabar text-cinnabar font-black text-7xl leading-normal">涼茶鋪</h2>
               <a href="https://github.com/chenxing-dev/leung-cha"
-                className="block text-2xl text-center font-bold hover:underline hover:text-cinnabar"
+                className="block text-2xl text-right font-bold hover:underline hover:text-cinnabar"
               >陳刑制</a>
             </div>
             <PotArea potHerbs={potHerbs} setPotHerbs={setPotHerbs} setBoiledTeas={setBoiledTeas} />
           </div>
-          <RecipeInfo potHerbs={potHerbs} herbs={herbs} boiledTeas={boiledTeas} />
+          <div className="z-10 mr-8 my-6 flex flex-1">
+            <RecipeInfo potHerbs={potHerbs} herbs={herbs} boiledTeas={boiledTeas} />
+          </div>
+
         </main>
       </div>
     </div>
