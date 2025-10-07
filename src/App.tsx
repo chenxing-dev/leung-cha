@@ -34,9 +34,9 @@ function App() {
           <HerbList herbs={herbs} />
         </aside>
         <div className="border-x-6 border-light-brown w-4 bg-scroll-border"></div>
-        <main className="flex-1 flex">
+        <main className="flex-1 flex overflow-hidden">
           <div className="flex flex-col items-center justify-center w-1/2">
-            <PotArea setPotHerbs={setPotHerbs} />
+            <PotArea potHerbs={potHerbs} setPotHerbs={setPotHerbs} />
           </div>
           <RecipeInfo potHerbs={potHerbs} herbs={herbs} />
         </main>
