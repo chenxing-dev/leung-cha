@@ -1,3 +1,4 @@
+import { herbs as HERB_LIST } from "../App";
 import { useState, useRef, useEffect } from "react";
 import { useDrop } from 'react-dnd';
 import Stove from "./pot/Stove";
@@ -5,11 +6,21 @@ import Teapot from "./pot/Teapot";
 import Fire from "./pot/Fire";
 import Steam from "./pot/Steam";
 import ProgressBar from "./pot/ProgressBar";
-import TeaReadyTip from "./pot/TeaReadyTip";
+import PotTip from "./pot/PotTip";
+import { matchRecipe } from "./RecipeInfo";
 
-export function PotArea({ potHerbs, setPotHerbs }: { potHerbs: string[]; setPotHerbs: (fn: (prev: string[]) => string[]) => void }) {
+export interface BoiledTea {
+    name: string;
+    description?: string;
+}
+interface PotAreaProps {
+    potHerbs: string[];
+    setPotHerbs: (fn: (prev: string[]) => string[]) => void;
+    setBoiledTeas: (fn: (prev: BoiledTea[]) => BoiledTea[]) => void;
+}
+
+export function PotArea({ potHerbs, setPotHerbs, setBoiledTeas }: PotAreaProps) {
     const [isFireOn, setIsFireOn] = useState(false);
-    const [showTeaReady, setShowTeaReady] = useState(false);
     const [boilProgress, setBoilProgress] = useState(0); // 0~100
     const [isBoiled, setIsBoiled] = useState(false);
     const [{ isOver }, dropRef] = useDrop({
@@ -32,7 +43,7 @@ export function PotArea({ potHerbs, setPotHerbs }: { potHerbs: string[]; setPotH
     useEffect(() => {
         let timer: number | null = null;
         if (isFireOn && hasHerbs() && !isBoiled) {
-            const totalTime = Math.max(1, potHerbs.length) * 2000; // 每味药材2秒
+            const totalTime = Math.max(1, potHerbs.length) * 1000; // 每味药材1秒
             const start = Date.now();
             timer = setInterval(() => {
                 const elapsed = Date.now() - start;
@@ -57,12 +68,34 @@ export function PotArea({ potHerbs, setPotHerbs }: { potHerbs: string[]; setPotH
         } else {
             setIsFireOn(false);
             if (isBoiled) {
-                setShowTeaReady(true);
+                // 检查当前壶内药材是否为配方，若是则加入 boiledTeas
+                const recipe = matchRecipe(potHerbs);
+                if (recipe) {
+                    setBoiledTeas(prev => prev.some(t => t.name === recipe.name) ? prev : [...prev, { name: recipe.name, description: recipe.description }]);
+                } else if (potHerbs.length > 0) {
+                    // 自动生成自制涼茶名字
+                    const herbNames = potHerbs.map(id => {
+                        const herb = HERB_LIST.find(h => h.id === id);
+                        return herb ? herb.name : id;
+                    });
+                    const customName = `自制涼茶（${herbNames.join('、')}）`;
+                    setBoiledTeas(prev => prev.some(t => t.name === customName) ? prev : [...prev, { name: customName }]);
+                }
                 setPotHerbs(() => []);
-                setTimeout(() => setShowTeaReady(false), 2000);
             }
             setIsBoiled(false);
         }
+    }
+
+    // 新手/步骤提示逻辑
+    let tip: string | null = null;
+    if (!hasHerbs()) {
+        tip = "請從左側藥材欄\n拖拽藥材到煲內";
+    } else if (!isFireOn && hasHerbs()) {
+        tip = "可繼續放藥材\n或點擊爐點火煎煮";
+    }
+    else if (isBoiled) {
+        tip = "煎煮完成！\n再次點擊爐關火";
     }
 
     return (
@@ -72,7 +105,7 @@ export function PotArea({ potHerbs, setPotHerbs }: { potHerbs: string[]; setPotH
             <Fire isFireOn={isFireOn} />
             <Steam isBoiled={isBoiled} />
             {isFireOn && hasHerbs() && !isBoiled && <ProgressBar progress={boilProgress} />}
-            {showTeaReady && <TeaReadyTip />}
+            {tip && <PotTip>{tip}</PotTip>}
         </div>
     );
 }
