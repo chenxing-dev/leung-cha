@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
 @import "tailwindcss";
 
 @theme {
+    /* 全局字體 */
+    --font-serif: "Noto Serif TC", serif;
+
     /* 中式卷轴/传统纹样 inspired palette */
     --color-dark-brown: #513b27;
     /* 深棕色 */
@@ -18,6 +22,7 @@
     /* 红棕 */
     --color-brown-red: #83532d;
     /*  棕红 */
+    --color-cinnabar: #7d3e28; /* 朱砂 */
 
     /* 火焰淡入與跳動 */
     --animate-fire-on: flame-fade-in 400ms ease-out forwards, flame-flicker 2000ms linear infinite 400ms;

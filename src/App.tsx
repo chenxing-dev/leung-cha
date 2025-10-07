@@ -28,15 +28,25 @@ function App() {
   const [boiledTeas, setBoiledTeas] = useState<BoiledTea[]>([]);
 
   return (
-    <div className="h-screen p-3 font-mono text-4xl bg-herb border-dark-brown text-dark-brown/95">
+    <div className="h-screen p-3 text-4xl font-serif font-semibold bg-herb border-dark-brown text-dark-brown/95">
       <HerbDragPreview herbs={herbs} />
       <div className="flex h-full bg-scroll border-6 border-wood">
         <aside className="w-80 overflow-x-hidden">
           <HerbList herbs={herbs} />
         </aside>
         <div className="border-x-6 border-light-brown w-4 bg-scroll-border"></div>
-        <main className="flex-1 flex overflow-hidden">
-          <div className="flex flex-col items-center justify-center w-1/2">
+        <main className="flex-1 flex overflow-hidden relative bg-scroll" style={{
+          backgroundImage: `linear-gradient(to right, var(--color-scroll-border) 6px, transparent 2px), linear-gradient(to bottom, var(--color-scroll-border) 6px, transparent 2px)`,
+          backgroundSize: '96px 96px',
+          backgroundPosition: 'left 60px top 18px',
+        }}>
+          <div className="flex flex-col items-center justify-around w-1/2 relative">
+            <div className="">
+              <h2 className="px-6 bg-scroll w-fit border-6 border-cinnabar text-cinnabar font-black text-7xl leading-normal">涼茶鋪</h2>
+              <a href="https://github.com/chenxing-dev/leung-cha"
+                className="block text-2xl text-center font-bold hover:underline hover:text-cinnabar"
+              >陳刑制</a>
+            </div>
             <PotArea potHerbs={potHerbs} setPotHerbs={setPotHerbs} setBoiledTeas={setBoiledTeas} />
           </div>
           <RecipeInfo potHerbs={potHerbs} herbs={herbs} boiledTeas={boiledTeas} />

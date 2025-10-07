@@ -1,5 +1,5 @@
 import { herbs as HERB_LIST } from "../App";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useDrop } from 'react-dnd';
 import Stove from "./pot/Stove";
 import Teapot from "./pot/Teapot";
@@ -7,7 +7,9 @@ import Fire from "./pot/Fire";
 import Steam from "./pot/Steam";
 import ProgressBar from "./pot/ProgressBar";
 import PotTip from "./pot/PotTip";
-import { matchRecipe } from "./RecipeInfo";
+import { matchRecipe } from "./recipes";
+import { useBoiling, usePotTip } from "./pot/potHooks";
+
 
 export interface BoiledTea {
     name: string;
@@ -35,33 +37,14 @@ export function PotArea({ potHerbs, setPotHerbs, setBoiledTeas }: PotAreaProps) 
     const potDivRef = useRef<HTMLDivElement>(null);
     dropRef(potDivRef);
 
-    function hasHerbs() {
-        return potHerbs && potHerbs.length > 0;
-    }
-
-    // 进度条动画
-    useEffect(() => {
-        let timer: number | null = null;
-        if (isFireOn && hasHerbs() && !isBoiled) {
-            const totalTime = Math.max(1, potHerbs.length) * 1000; // 每味药材1秒
-            const start = Date.now();
-            timer = setInterval(() => {
-                const elapsed = Date.now() - start;
-                const percent = Math.min(100, Math.round((elapsed / totalTime) * 100));
-                setBoilProgress(percent);
-                if (percent >= 100) {
-                    setIsBoiled(true);
-                    clearInterval(timer!);
-                }
-            }, 100);
-        } else {
-            setBoilProgress(0);
-        }
-        return () => { if (timer) clearInterval(timer); };
-    }, [isFireOn, potHerbs, isBoiled]);
+    // boiling/animation logic
+    useBoiling(potHerbs, isFireOn, isBoiled, setBoilProgress, setIsBoiled);
+    // tip logic
+    const tip = usePotTip(potHerbs, isFireOn, isBoiled);
 
     function handleStoveClick() {
-        if (!hasHerbs()) return;
+        const hasHerbs = potHerbs && potHerbs.length > 0;
+        if (!hasHerbs) return;
         if (!isFireOn) {
             setIsFireOn(true);
             setIsBoiled(false);
@@ -87,24 +70,13 @@ export function PotArea({ potHerbs, setPotHerbs, setBoiledTeas }: PotAreaProps) 
         }
     }
 
-    // 新手/步骤提示逻辑
-    let tip: string | null = null;
-    if (!hasHerbs()) {
-        tip = "請從左側藥材欄\n拖拽藥材到煲內";
-    } else if (!isFireOn && hasHerbs()) {
-        tip = "可繼續放藥材\n或點擊爐點火煎煮";
-    }
-    else if (isBoiled) {
-        tip = "煎煮完成！\n再次點擊爐關火";
-    }
-
     return (
         <div className="relative w-48 h-96 pointer-events-auto" ref={potDivRef}>
-            <Stove hasHerbs={hasHerbs()} onClick={handleStoveClick} />
+            <Stove hasHerbs={potHerbs.length > 0} onClick={handleStoveClick} />
             <Teapot isOver={isOver} />
             <Fire isFireOn={isFireOn} />
             <Steam isBoiled={isBoiled} />
-            {isFireOn && hasHerbs() && !isBoiled && <ProgressBar progress={boilProgress} />}
+            {isFireOn && potHerbs.length > 0 && !isBoiled && <ProgressBar progress={boilProgress} />}
             {tip && <PotTip>{tip}</PotTip>}
         </div>
     );
