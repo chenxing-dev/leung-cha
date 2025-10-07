@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# 涼茶鋪 (Herbal Tea Shop)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+中式像素風涼茶煲製互動頁面
 
-Currently, two official plugins are available:
+## 項目簡介
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+本項目是一個以中式涼茶文化為主題的互動網頁，採用像素美術風格，支持藥材拖拽、煲茶動畫、配方檢測與收穫提示。用戶可自由組合藥材，體驗煲製涼茶的樂趣，並學習各種經典配方。
 
-## React Compiler
+- 技術棧：React + TypeScript + Vite + TailwindCSS + react-dnd
+- 特色：
+  - 藥材拖拽交互
+  - 煲區火焰/蒸汽動畫
+  - 進度條與收穫提示
+  - 配方自動檢測與說明
+  - 像素美術界面
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 命名說明
 
-## Expanding the ESLint configuration
+- "leung-cha" 為粵語「涼茶」的拼音，代表廣府地區的草本茶文化。
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 使用方法
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. 安裝依賴：
+  ```bash
+  npm install
+  ```
+2. 啟動開發伺服器：
+  ```bash
+  npm run dev
+  ```
+3. 打開瀏覽器訪問 `http://localhost:5173`。
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 主要功能
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- 拖拽藥材至煲區，點火煲製
+- 火焰、蒸汽、進度條動畫
+- 配方自動檢測，命中配方顯示名稱與功效
+- 未命中配方自動命名「自制涼茶」
+- 煲好涼茶自動收錄
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 目標人群
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 涼茶文化愛好者
+- 中醫藥材學習者
+- 像素美術愛好者
+- 前端技術學習者
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 聯絡與貢獻
+
+歡迎提出建議、報告問題或提交 PR。
+
+---
+
+## License
+
+MIT

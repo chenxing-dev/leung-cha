@@ -30,11 +30,13 @@ function App() {
   return (
     <div className="h-screen p-3 text-4xl font-serif font-semibold bg-herb border-dark-brown text-dark-brown/95">
       <HerbDragPreview herbs={herbs} />
-      <div className="flex h-full bg-scroll border-6 border-wood">
+      <div id="layout"
+        className="flex h-full bg-scroll border-6 border-wood">
         <aside className="w-80 overflow-x-hidden">
           <HerbList herbs={herbs} />
         </aside>
-        <div className="border-x-6 border-light-brown w-4 bg-scroll-border"></div>
+        <div id="divider"
+          className="border-x-6 border-light-brown w-4 bg-scroll-border"></div>
         <main className="flex-1 flex overflow-hidden relative bg-scroll" style={{
           backgroundImage: `linear-gradient(to right, var(--color-scroll-border) 6px, transparent 2px), linear-gradient(to bottom, var(--color-scroll-border) 6px, transparent 2px)`,
           backgroundSize: '96px 96px',
