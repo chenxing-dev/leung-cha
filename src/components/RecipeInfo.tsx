@@ -15,8 +15,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
             <div className="flex flex-col w-full h-60 text-3xl">
                 <div className="flex items-center">
                     <img src="/decor/mortar_24x24.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
-                    <p className="font-bold">壺內藥材：</p>
-                    {herbList.length > 0 ? null : <span>空</span>}
+                    <p className="font-bold flex-1 text-center">壺內藥材</p>
                 </div>
                 {herbList.length > 0 ? (
                     <ul className="list-disc ml-4 px-8 text-3xl grid grid-cols-2 gap-x-4 gap-y-2 max-h-40 overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
@@ -30,7 +29,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
             <div className="flex flex-col flex-1 w-full text-3xl gap-2" >
                 <div className="flex items-center">
                     <img src="/containers/gourd_24x24.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
-                    <p className="font-bold">煲好的涼茶：</p>{boiledTeas.length > 0 ? null : <span>無</span>}
+                    <p className="font-bold flex-1 text-center">煲好的涼茶</p>
                 </div>
                 {boiledTeas.length > 0 ? (
                     <div className="h-72 overflow-y-auto"> {boiledTeas.slice().reverse().map((tea, idx) => (

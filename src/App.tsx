@@ -3,6 +3,7 @@ import { HerbList } from './components/HerbList';
 import { PotArea, type BoiledTea } from './components/PotArea';
 import { RecipeInfo } from './components/RecipeInfo';
 import { HerbDragPreview } from './components/HerbDragPreview';
+import { DecorativeDivider } from './components/DecorativeDivider';
 
 export const herbs: { name: string; id: string }[] = [
   { name: "白朮", id: "bai_shu" },
@@ -32,11 +33,10 @@ function App() {
       <HerbDragPreview herbs={herbs} />
       <div id="layout"
         className="flex h-full bg-scroll border-6 border-wood">
-        <aside className="w-80 overflow-x-hidden">
+        <aside className="overflow-x-hidden">
           <HerbList herbs={herbs} />
         </aside>
-        <div id="divider"
-          className="border-x-6 border-light-brown w-4 bg-scroll-border"></div>
+        <DecorativeDivider />
         <main className="flex-1 flex overflow-hidden relative bg-scroll">
           {/* Perspective ground grid overlay */}
           <div className="absolute bottom-0 w-full h-full bg-gold">
@@ -64,13 +64,13 @@ function App() {
           <div className="absolute top-0 w-full h-3/4"
             style={{
               backgroundImage: `linear-gradient(to right, var(--color-scroll-border) 6px, transparent 2px), linear-gradient(to bottom, var(--color-scroll-border) 6px, transparent 2px)`,
-              backgroundSize: '85px 85px',
-              backgroundPosition: 'left 36px bottom 4px',
+              backgroundSize: '7.2vw 6.95vw',
+              backgroundPosition: 'left 2.7vw bottom 4px',
               backgroundColor: 'var(--color-scroll)',
             }}></div>
-          <div className="flex flex-col items-center justify-around w-1/2 relative">
+          <div className="flex flex-col items-center justify-around w-4/7 relative">
             <div>
-              <h2 className="px-13 bg-scroll w-fit border-6 border-cinnabar text-cinnabar font-black text-7xl leading-normal">涼茶鋪</h2>
+              <h2 className="px-6 bg-scroll w-fit border-6 border-cinnabar text-cinnabar font-black text-7xl leading-normal">涼茶鋪</h2>
               <a href="https://github.com/chenxing-dev/leung-cha"
                 className="block text-2xl text-right font-bold hover:underline hover:text-cinnabar"
               >陳刑制</a>
