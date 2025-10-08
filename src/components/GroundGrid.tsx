@@ -25,9 +25,13 @@ export const GroundGrid: React.FC = () => {
     const GRID_BOTTOM = HORIZON_Y;
     const GRID_LEFT = 0;
     const GRID_RIGHT = 100;
-    const SQUARE_SIZE = 12; // px in SVG units
-    // 橫線 y 座標（從下往上，第零條在最下方）
-    const gridH = Array.from({ length: Math.floor((GRID_BOTTOM - GRID_TOP) / SQUARE_SIZE) + 1 }, (_, i) => GRID_BOTTOM - i * SQUARE_SIZE);
+    const SQUARE_SIZE = horizonXs[1] - horizonXs[0];
+    // 橫線 y 座標（從下往上，第零條在最下方），每條線間距 SQUARE_SIZE
+    // 第零條橫線 y 座標 GRID_BOTTOM = HORIZON_Y
+    // 第一條橫線 y 座標 GRID_BOTTOM - SQUARE_SIZE
+    // 第二條橫線 y 座標 GRID_BOTTOM - 2 * SQUARE_SIZE
+    // ...
+    const gridH = Array.from({ length: Math.floor((GRID_BOTTOM - GRID_TOP) / SQUARE_SIZE) + 1 }, (_, i) => GRID_BOTTOM - (i + 1) * SQUARE_SIZE);
 
     return (
         <>
@@ -38,7 +42,7 @@ export const GroundGrid: React.FC = () => {
                     <rect x={GRID_LEFT} y={GRID_TOP} width={GRID_RIGHT - GRID_LEFT} height={GRID_BOTTOM - GRID_TOP} fill="var(--color-parchment)" />
                     {/* Square grid horizontal lines */}
                     {gridH.map((y, i) => (
-                        <line key={`sqh${i}`} x1={GRID_LEFT} y1={y} x2={GRID_RIGHT} y2={y} stroke="var(--color-sandalwood)" strokeWidth="1" />
+                        <line key={`sqh${i}`} x1={GRID_LEFT} y1={y} x2={GRID_RIGHT} y2={y} stroke="var(--color-sandalwood)" strokeWidth="0.7" />
                     ))}
                     {/* 垂直線（頂部） */}
                     {horizonXs.map((x, i) => (
