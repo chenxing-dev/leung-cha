@@ -10,10 +10,10 @@ export const ChineseFrame: React.FC<{
 }> = ({ className = '', style = {}, children }) => (
     <section className={`relative overflow-hidden p-3 w-full ${className}`} style={style}>
         {/* 四角紋樣 */}
-        <img src="ui/corner_5x5.png" className="absolute left-0 top-0 w-5 h-5 pointer-events-none select-none" style={{ imageRendering: 'pixelated' }} alt="corner" />
-        <img src="ui/corner_5x5.png" className="absolute right-0 top-0 w-5 h-5 pointer-events-none select-none rotate-90" style={{ imageRendering: 'pixelated' }} alt="corner" />
-        <img src="ui/corner_5x5.png" className="absolute left-0 bottom-0 w-5 h-5 pointer-events-none select-none -rotate-90" style={{ imageRendering: 'pixelated' }} alt="corner" />
-        <img src="ui/corner_5x5.png" className="absolute right-0 bottom-0 w-5 h-5 pointer-events-none select-none rotate-180" style={{ imageRendering: 'pixelated' }} alt="corner" />
+        <img src="ui/corner_5x5.png" className="absolute left-0 top-0 w-5 h-5 pointer-events-none select-none" style={{ imageRendering: 'pixelated' }} />
+        <img src="ui/corner_5x5.png" className="absolute right-0 top-0 w-5 h-5 pointer-events-none select-none rotate-90" style={{ imageRendering: 'pixelated' }} />
+        <img src="ui/corner_5x5.png" className="absolute left-0 bottom-0 w-5 h-5 pointer-events-none select-none -rotate-90" style={{ imageRendering: 'pixelated' }} />
+        <img src="ui/corner_5x5.png" className="absolute right-0 bottom-0 w-5 h-5 pointer-events-none select-none rotate-180" style={{ imageRendering: 'pixelated' }} />
         {/* 邊框紋樣 */}
         <div className="absolute top-0 left-5 right-5 h-3 pointer-events-none select-none" style={{ background: 'repeat-x url(ui/mid_1x3.png)', backgroundSize: 'auto 100%', imageRendering: 'pixelated' }} />
         <div className="absolute bottom-0 left-5 right-5 h-3 pointer-events-none select-none" style={{ background: 'repeat-x url(ui/mid_1x3.png)', backgroundSize: 'auto 100%', imageRendering: 'pixelated', rotate: '180deg' }} />

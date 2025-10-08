@@ -30,9 +30,9 @@ export default function Fire({ isFireOn }: { isFireOn: boolean }) {
     return (
         <>
             {/* 爐內火焰 fire_2.png */}
-            <img src="decor/fire_2.png" alt="爐內火" className={stoveFireClass} style={{ imageRendering: 'pixelated' }} />
+            <img src="decor/fire_2.png" className={stoveFireClass} style={{ imageRendering: 'pixelated' }} />
             {/* 爐上火焰 fire.png，延遲顯示 */}
-            <img src="decor/fire.png" alt="爐上火" className={topFireClass} style={{ imageRendering: 'pixelated' }} />
+            <img src="decor/fire.png" className={topFireClass} style={{ imageRendering: 'pixelated' }} />
         </>
     );
 }
