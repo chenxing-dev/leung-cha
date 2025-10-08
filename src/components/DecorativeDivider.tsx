@@ -18,10 +18,8 @@ export const DecorativeDivider: FC = () => {
             />
             {/* Middle repeat-y section */}
             <div
-                className='w-7'
+                className='w-7 flex-1'
                 style={{
-                    // width: '100%',
-                    flex: 1,
                     backgroundImage: 'url(/ui/mid_7x12.png)',
                     imageRendering: 'pixelated',
                     backgroundRepeat: 'repeat-y',
