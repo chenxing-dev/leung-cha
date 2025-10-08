@@ -23,9 +23,9 @@ export default function Fire({ isFireOn }: { isFireOn: boolean }) {
     }, [isFireOn]);
 
     // 爐內火：穩定閃爍
-    const stoveFireClass = `w-48 aspect-square object-contain absolute bottom-0 pointer-events-none transition-opacity duration-400 ${isFireOn ? 'opacity-100 animate-stove-fire' : 'opacity-0'}`;
+    const stoveFireClass = `w-48 aspect-square object-contain absolute bottom-0 pointer-events-none select-none transition-opacity duration-400 ${isFireOn ? 'opacity-100 animate-stove-fire' : 'opacity-0'}`;
     // 爐上火：跳動、延遲
-    const topFireClass = `w-48 aspect-square object-contain absolute bottom-0 pointer-events-none transition-opacity duration-600 ${showTopFire && isFireOn ? 'opacity-100 animate-top-fire' : 'opacity-0'}`;
+    const topFireClass = `w-48 aspect-square object-contain absolute bottom-0 pointer-events-none select-none transition-opacity duration-600 ${showTopFire && isFireOn ? 'opacity-100 animate-top-fire' : 'opacity-0'}`;
 
     return (
         <>

@@ -33,7 +33,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
                 </div>
                 {boiledTeas.length > 0 ? (
                     <div className="h-72 overflow-y-auto"> {boiledTeas.slice().reverse().map((tea, idx) => (
-                        <div key={idx} className="mt-2 p-2 bg-gold/30 border-6 border-gold rounded text-3xl font-bold text-brown">
+                        <div key={idx} className="mt-2 p-1.5 bg-gold/30 border-6 border-gold rounded text-3xl font-bold text-brown">
                             <p>{tea.name}</p>
                             <span className="text-2xl font-normal">{tea.description}</span>
                         </div>
