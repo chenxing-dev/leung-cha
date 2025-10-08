@@ -12,7 +12,7 @@ export const DecorativeDivider: FC = () => {
         >
             {/* Top end */}
             <img
-                src="/ui/end_7x4.png"
+                src="ui/end_7x4.png"
                 className="select-none"
                 style={{ imageRendering: 'pixelated' }}
             />
@@ -20,7 +20,7 @@ export const DecorativeDivider: FC = () => {
             <div
                 className='w-7 flex-1'
                 style={{
-                    backgroundImage: 'url(/ui/mid_7x12.png)',
+                    backgroundImage: 'url(ui/mid_7x12.png)',
                     imageRendering: 'pixelated',
                     backgroundRepeat: 'repeat-y',
                     backgroundSize: '100% auto',
@@ -28,7 +28,7 @@ export const DecorativeDivider: FC = () => {
             />
             {/* Bottom end (翻轉) */}
             <img
-                src="/ui/end_7x4.png"
+                src="ui/end_7x4.png"
                 className="select-none rotate-180"
                 style={{ imageRendering: 'pixelated' }}
             />

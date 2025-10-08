@@ -27,7 +27,7 @@ export function HerbDragPreview({ herbs }: { herbs: Herb[] }) {
             zIndex: 9999,
         }}>
             <img
-                src={`/herbs/${herb.id}.png`}
+                src={`herbs/${herb.id}.png`}
                 alt={herb.name}
                 className="w-32 aspect-square object-contain"
                 style={{ imageRendering: 'pixelated' }}

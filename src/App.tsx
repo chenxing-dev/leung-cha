@@ -41,7 +41,7 @@ function App() {
 
   if (screenTooSmall) {
     return (
-      <div className="flex flex-col items-center justify-center w-screen h-screen bg-mossy text-inkstone text-3xl font-bold">
+      <div className="flex flex-col items-center justify-center w-screen h-screen bg-mossy text-inkstone text-3xl font-serif font-bold">
         <ShopTitle />
         <ChineseFrame className="mx-4 my-8">
           <div className="px-6 py-4">

@@ -51,10 +51,10 @@ export const TeaBowl: React.FC<{ show: boolean; onDrink?: () => void }> = ({ sho
 
     // 根據 pouringStep 顯示對應 sprite
     const bowlSprites = [
-        '/containers/rooster_bowl_0.png',
-        '/containers/rooster_bowl_1.png',
-        '/containers/rooster_bowl_2.png',
-        '/containers/rooster_bowl_3.png',
+        'containers/rooster_bowl_0.png',
+        'containers/rooster_bowl_1.png',
+        'containers/rooster_bowl_2.png',
+        'containers/rooster_bowl_3.png',
     ];
 
     return show ? (

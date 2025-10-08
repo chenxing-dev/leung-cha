@@ -16,7 +16,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
             <div className="px-4 py-2">
                 <div className="flex flex-col w-full h-60 text-3xl">
                     <div className="flex items-center">
-                        <img src="/decor/mortar_24x24.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
+                        <img src="decor/mortar_24x24.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
                         <p className="font-bold flex-1 text-center">壺內藥材</p>
                     </div>
                     {herbList.length > 0 ? (
@@ -30,7 +30,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
                 <hr className="w-full border-scroll my-3 border-3" />
                 <div className="flex flex-col flex-1 w-full text-3xl gap-2" >
                     <div className="flex items-center">
-                        <img src="/containers/gourd_24x24_2.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
+                        <img src="containers/gourd_24x24_2.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
                         <p className="font-bold flex-1 text-center">煲過的涼茶</p>
                     </div>
                     {boiledTeas.length > 0 ? (

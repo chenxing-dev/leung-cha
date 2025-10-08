@@ -10,7 +10,7 @@ export interface Herb {
 export function HerbItem({ herb }: { herb: Herb }) {
     const liRef = useRef<HTMLLIElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
-    const iconPath = `/herbs/${herb.id}.png`;
+    const iconPath = `herbs/${herb.id}.png`;
     const [{ isDragging }, drag, preview] = useDrag({
         type: 'HERB',
         item: { id: herb.id },
