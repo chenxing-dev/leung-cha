@@ -1,14 +1,6 @@
 /**
  * 地面透視格線與背景
- * - 地平線 y=66
- * - 地面底部 y=96
- * - 透視消失點 x=24, y=0
- * - 垂直線數量 n
- * - 透視線與頂部垂直線精確對齊
  */
-import React from 'react';
-
-
 const BOTTOM_Y = 96;
 const TOP_Y = 0;
 const HORIZON_Y = 66; // 地平線 y 座標
