@@ -14,12 +14,12 @@ interface MainLayoutProps {
 }
 
 export const MainLayout: React.FC<MainLayoutProps> = ({ herbs, potHerbs, setPotHerbs, boiledTeas, setBoiledTeas }) => (
-    <div id="layout" className="flex h-full bg-scroll border-6 border-wood">
+    <div id="layout" className="flex h-full bg-paper border-6 border-wood">
         <aside className="overflow-x-hidden">
             <HerbList herbs={herbs} />
         </aside>
         <DecorativeDivider />
-        <main className="flex-1 flex overflow-hidden relative bg-scroll">
+        <main className="flex-1 flex overflow-hidden relative bg-paper">
             <GroundGrid />
             <div className="flex flex-col items-center justify-around w-4/7 relative">
                 <ShopTitle />

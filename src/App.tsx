@@ -27,7 +27,7 @@ function App() {
   const [boiledTeas, setBoiledTeas] = useState<BoiledTea[]>([]);
 
   return (
-    <div className="h-screen p-3 text-4xl font-serif font-semibold bg-herb border-dark-brown text-dark-brown/95 min-w-250">
+    <div className="h-screen p-3 text-4xl font-serif font-semibold bg-mossy border-inkstone text-inkstone/95 min-w-250">
       <HerbDragPreview herbs={herbs} />
       <MainLayout
         herbs={herbs}

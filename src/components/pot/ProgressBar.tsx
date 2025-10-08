@@ -1,6 +1,6 @@
 export default function ProgressBar({ progress }: { progress: number }) {
     return (
-        <div className="absolute inset-x-0 top-0 h-16 bg-scroll overflow-hidden border-6 border-dark-brown">
+        <div className="absolute inset-x-0 top-0 h-16 bg-paper overflow-hidden border-6 border-inkstone">
             <div
                 className="h-full bg-gold transition-all duration-300"
                 style={{ width: `${progress}%` }}

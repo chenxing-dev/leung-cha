@@ -11,7 +11,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
         .filter(Boolean);
 
     return (
-        <section className="px-6 py-4 bg-scroll border-6 border-dark-brown/90 w-full" style={{ scrollbarWidth: 'none' }}>
+        <section className="px-6 py-4 bg-paper border-6 border-inkstone/90 w-full" style={{ scrollbarWidth: 'none' }}>
             <div className="flex flex-col w-full h-60 text-3xl">
                 <div className="flex items-center">
                     <img src="/decor/mortar_24x24.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
@@ -25,7 +25,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
                     </ul>
                 ) : null}
             </div>
-            <hr className="w-full border-scroll-border my-4 border-3" />
+            <hr className="w-full border-scroll my-4 border-3" />
             <div className="flex flex-col flex-1 w-full text-3xl gap-2" >
                 <div className="flex items-center">
                     <img src="/containers/gourd_24x24_2.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
