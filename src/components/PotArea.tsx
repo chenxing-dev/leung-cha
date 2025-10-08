@@ -42,7 +42,7 @@ export const PotArea: React.FC<PotAreaProps> = ({ potHerbs, setPotHerbs, setBoil
     // boiling/animation logic
     useBoiling(potHerbs, isFireOn, isBoiled, setBoilProgress, setIsBoiled);
     // tip logic
-    const tip = usePotTip(potHerbs, isFireOn, isBoiled);
+    const tip = usePotTip(potHerbs, isFireOn, isBoiled, showBowl);
 
     function handleStoveClick() {
         const hasHerbs = potHerbs && potHerbs.length > 0;

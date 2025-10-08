@@ -45,7 +45,7 @@ export const TeaBowl: React.FC<{ show: boolean; onDrink?: () => void }> = ({ sho
             setTimeout(() => {
                 setDrinking(false);
                 onDrink && onDrink();
-            }, 600); // 动画时长
+            }, 1500 - 100); // 动画时长 - 100ms 提前触发 onDrink
         }
     };
 
@@ -58,17 +58,24 @@ export const TeaBowl: React.FC<{ show: boolean; onDrink?: () => void }> = ({ sho
     ];
 
     return show ? (
-        <img
-            src={bowlSprites[Math.min(pouringStep, 3)]}
-            className={`w-48 aspect-ratio absolute bottom-0 left-1/2 -translate-x-1/2 transition-all duration-200 animate-tea-bowl-in ${drinking ? 'animate-drink' : ''} ${pouringStep === 3 && !drinking ? 'hover:scale-105' : ''}`}
-            style={{
-                imageRendering: 'pixelated',
-                cursor: !drinking && pouringStep === 3 ? 'pointer' : 'default',
-                filter: 'drop-shadow(0 0 16px var(--color-inkstone))',
-            }}
-            onClick={handleClick}
-            draggable={false}
-        />
+        <>
+            <img
+                src={bowlSprites[0]}
+                className={`w-48 aspect-ratio absolute bottom-0 left-1/2 -translate-x-1/2 blur-md scale-120 brightness-120 ${drinking ? 'hidden' : ''}`}
+                draggable={false}
+            />
+            <img
+                src={bowlSprites[Math.min(pouringStep, 3)]}
+                className={`w-48 aspect-ratio absolute bottom-0 left-1/2 -translate-x-1/2 transition-all duration-200 animate-tea-bowl-in ${pouringStep === 3 && !drinking ? 'hover:scale-105' : ''}`}
+                style={{
+                    imageRendering: 'pixelated',
+                    cursor: !drinking && pouringStep === 3 ? 'pointer' : 'default',
+                    animation: drinking ? 'var(--animate-drink)' : undefined,
+                }}
+                onClick={handleClick}
+                draggable={false}
+            />
+        </>
     ) : null;
 }
 

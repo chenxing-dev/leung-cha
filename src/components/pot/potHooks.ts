@@ -23,9 +23,11 @@ export function useBoiling(potHerbs: string[], isFireOn: boolean, isBoiled: bool
     }, [isFireOn, potHerbs, isBoiled]);
 }
 
-export function usePotTip(potHerbs: string[], isFireOn: boolean, isBoiled: boolean) {
+export function usePotTip(potHerbs: string[], isFireOn: boolean, isBoiled: boolean, hasTeaBowl: boolean) {
     if (!potHerbs || potHerbs.length === 0) {
         return "請從左側藥材欄\n拖拽藥材到壺內";
+    } else if (hasTeaBowl) {
+        return "涼茶已煮好\n點擊雞公碗可服用~";
     } else if (!isFireOn) {
         return "可繼續放藥材\n或點擊爐點火煎煮";
     } else if (isBoiled) {
