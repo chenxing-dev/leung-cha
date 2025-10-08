@@ -1,5 +1,26 @@
-.tea-bowl-in {
-    animation: tea-bowl-in-anim 0.5s cubic-bezier(.5, 1.5, .5, 1) forwards;
+/* 雞公碗動畫 & 壺倒茶動畫（teaBowlPour.css） */
+@theme {
+    --animate-pour: teapot-pour-anim 0.7s cubic-bezier(.5, 1.5, .5, 1);
+    --animate-tea-bowl-in: tea-bowl-in-anim 0.5s cubic-bezier(.5, 1.5, .5, 1) forwards;
+    --animate-drink: tea-bowl-drink-anim 0.6s cubic-bezier(.5, 1.5, .5, 1);
+}
+
+@keyframes teapot-pour-anim {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    30% {
+        transform: rotate(-28deg) scale(1.05);
+    }
+
+    60% {
+        transform: rotate(-32deg) scale(1.08);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
 }
 
 @keyframes tea-bowl-in-anim {
@@ -19,10 +40,6 @@
         transform: scale(1);
         filter: brightness(1);
     }
-}
-
-.tea-bowl-drink {
-    animation: tea-bowl-drink-anim 0.6s cubic-bezier(.5, 1.5, .5, 1);
 }
 
 @keyframes tea-bowl-drink-anim {

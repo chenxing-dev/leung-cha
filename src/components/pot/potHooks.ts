@@ -29,7 +29,7 @@ export function usePotTip(potHerbs: string[], isFireOn: boolean, isBoiled: boole
     } else if (!isFireOn) {
         return "可繼續放藥材\n或點擊爐點火煎煮";
     } else if (isBoiled) {
-        return "煎煮完成！\n再次點擊爐關火";
+        return "煎煮完成！\n請點擊爐關火，倒出涼茶";
     }
     return null;
 }

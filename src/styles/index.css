@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
 @import "tailwindcss";
-@import "./animations.css";
+@import "./flameSteam.css";
+@import "./teaBowlPour.css";
 
 @theme {
     /* 全局字體 */
@@ -17,6 +18,8 @@
     /* warm gold */
     --color-mossy: #847b5a;
     /* greyish-green */
+    --color-glow: #e3ca9c;
+    /* lantern glow */
     --color-paper: #decbaa;
     /* warm, creamy off-white */
     --color-parchment: #d7bd8d;

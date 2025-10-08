@@ -81,7 +81,7 @@ export const PotArea: React.FC<PotAreaProps> = ({ potHerbs, setPotHerbs, setBoil
     return (
         <div className="relative w-48 h-96 pointer-events-auto" ref={potDivRef}>
             <Stove hasHerbs={potHerbs.length > 0} onClick={handleStoveClick} />
-            <Teapot isOver={isOver} />
+            <Teapot isOver={isOver} pouring={showBowl} />
             <Fire isFireOn={isFireOn} />
             <Steam isBoiled={isBoiled} />
             {isFireOn && potHerbs.length > 0 && !isBoiled && <ProgressBar progress={boilProgress} />}

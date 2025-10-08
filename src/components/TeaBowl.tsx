@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../styles/TeaBowl.css';
 
 /**
  * 雞公碗像素涼茶元件
@@ -24,7 +23,7 @@ export const TeaBowl: React.FC<{ show: boolean; onDrink?: () => void }> = ({ sho
         <img
             src="/containers/rooster_bowl.png"
             alt="雞公碗"
-            className={`w-32 aspect-ratio absolute bottom-16 left-1/2 -translate-x-1/2 transition-all duration-200 tea-bowl-in ${drinking ? 'tea-bowl-drink' : ''}`}
+            className={`w-32 aspect-ratio absolute bottom-16 left-1/2 -translate-x-1/2 transition-all duration-200 animate-tea-bowl-in ${drinking ? 'animate-drink' : ''}`}
             style={{ imageRendering: 'pixelated', cursor: !drinking ? 'pointer' : 'default' }}
             onClick={handleClick}
             draggable={false}
