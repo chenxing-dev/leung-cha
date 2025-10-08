@@ -1,13 +1,13 @@
 /* 雞公碗動畫 & 壺倒茶動畫（teaBowlPour.css） */
 @theme {
-    --animate-pour: teapot-pour-anim 2s ease-in-out;
+    --animate-pour: teapot-pour-anim 2.5s ease-in-out;
     /* --animate-pour-infinite: teapot-pour-anim 2s ease-in-out infinite; */
     --animate-tea-bowl-in: tea-bowl-in-anim 0.5s cubic-bezier(.5, 1.5, .5, 1) forwards;
     --animate-drink: tea-bowl-drink-anim 0.6s cubic-bezier(.5, 1.5, .5, 1);
 }
 
 @keyframes teapot-pour-anim {
-    0% {
+    0% { 
         transform: rotate(0deg) scale(1);
     }
 
@@ -23,7 +23,7 @@
         transform: rotate(-36deg) scale(1.08) translateX(72px) translateY(16px);
     }
 
-    99% {
+    95% {
         transform: translateX(8px) translateY(-8px);
     }
 
