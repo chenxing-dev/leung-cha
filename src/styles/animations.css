@@ -1,38 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
-@import "tailwindcss";
+/* 火焰與蒸汽動畫（leung-cha 專用） */
 
 @theme {
-    /* 全局字體 */
-    --font-serif: "Noto Serif TC", serif;
-
-    /* 中式卷轴/传统纹样 inspired palette */
-    --color-dark-brown: #513b27;
-    /* 深棕色 */
-    --color-light-brown: #89724e;
-    /* 浅棕/边饰 */
-    --color-scroll: #decbaa;
-    /* 卷轴底 */
-    --color-scroll-border: #c4a67a;
-    /* 卷轴边 */
-    --color-herb: #847b5a;
-    /* 草本绿棕 */
-    --color-gold: #bfa46f;
-    /* 金色 */
-    --color-red-brown: #9e5538;
-    /* 红棕 */
-    --color-brown-red: #83532d;
-    /*  棕红 */
-    --color-cinnabar: #7d3e28;
-    /* 朱砂 */
-
-    /* 火焰淡入與跳動（舊） */
-    --animate-fire-on: flame-fade-in 400ms ease-out forwards, flame-flicker 2000ms linear infinite 400ms;
-
-    /* 爐內火：暗色、慢速、不同相位 */
+    /* 火焰動畫變數 */
     --animate-stove-fire: flame-fade-in 400ms ease-out forwards, stove-flame-flicker 2600ms linear infinite 0ms;
-    /* 爐上火：亮色、快速、不同相位 */
     --animate-top-fire: flame-fade-in 400ms ease-out forwards, top-flame-flicker 1600ms linear infinite 200ms;
+    --animate-steam-float: steam-float 3s ease-in-out infinite;
 
+    /* 火焰淡入 */
     @keyframes flame-fade-in {
         0% {
             opacity: 0;
@@ -47,30 +21,6 @@
         100% {
             opacity: 1;
             transform: scale(1) translateY(0);
-        }
-    }
-
-    @keyframes flame-flicker {
-
-        0%,
-        100% {
-            filter: hue-rotate(0deg) brightness(1);
-            transform: translateY(0) scaleY(1);
-        }
-
-        25% {
-            filter: hue-rotate(-5deg) brightness(1.05);
-            transform: translateY(0.5px) scaleY(1.02);
-        }
-
-        50% {
-            filter: hue-rotate(3deg) brightness(0.95);
-            transform: translateY(0.5px) scaleY(0.98);
-        }
-
-        75% {
-            filter: hue-rotate(-2deg) brightness(1.1);
-            transform: translateY(2px) scaleY(1.05);
         }
     }
 
@@ -113,12 +63,10 @@
             transform: translateY(3px) scaleY(1.07);
         }
 
-
         60% {
             filter: brightness(1.05) drop-shadow(0 0 4px var(--color-gold));
             transform: translateY(-1.5px) scaleY(0.96);
         }
-
 
         80% {
             filter: brightness(1.2) drop-shadow(0 0 8px var(--color-gold));
@@ -127,8 +75,6 @@
     }
 
     /* 蒸汽輕微漂浮 */
-    --animate-steam-float: steam-float 3s ease-in-out infinite;
-
     @keyframes steam-float {
         0% {
             transform: translateY(0);

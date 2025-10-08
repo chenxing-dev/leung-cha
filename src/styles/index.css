@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
+@import "tailwindcss";
+@import "./animations.css";
+
+@theme {
+    /* 全局字體 */
+    --font-serif: "Noto Serif TC", serif;
+
+    /* 中式卷轴/传统纹样 inspired palette */
+    --color-dark-brown: #513b27;
+    /* 深棕色 */
+    --color-light-brown: #89724e;
+    /* 浅棕/边饰 */
+    --color-scroll: #decbaa;
+    /* 卷轴底 */
+    --color-scroll-border: #c4a67a;
+    /* 卷轴边 */
+    --color-herb: #847b5a;
+    /* 草本绿棕 */
+    --color-gold: #bfa46f;
+    /* 金色 */
+    --color-red-brown: #9e5538;
+    /* 红棕 */
+    --color-brown-red: #83532d;
+    /*  棕红 */
+    --color-cinnabar: #7d3e28;
+    /* 朱砂 */
+
+    /* ...existing theme variables... */
+}
