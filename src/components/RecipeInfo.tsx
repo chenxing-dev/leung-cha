@@ -29,7 +29,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
             <div className="flex flex-col flex-1 w-full text-3xl gap-2" >
                 <div className="flex items-center">
                     <img src="/containers/gourd_24x24_2.png" className="inline-block w-24 aspect-ratio" style={{ imageRendering: "pixelated" }} />
-                    <p className="font-bold flex-1 text-center">煲好的涼茶</p>
+                    <p className="font-bold flex-1 text-center">煲過的涼茶</p>
                 </div>
                 {boiledTeas.length > 0 ? (
                     <div className="h-72 overflow-y-auto"> {boiledTeas.slice().reverse().map((tea, idx) => (

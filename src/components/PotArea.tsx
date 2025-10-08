@@ -9,6 +9,7 @@ import ProgressBar from "./pot/ProgressBar";
 import PotTip from "./pot/PotTip";
 import { matchRecipe } from "./recipes";
 import { useBoiling, usePotTip } from "./pot/potHooks";
+import TeaBowl from "./TeaBowl";
 
 
 export interface BoiledTea {
@@ -21,10 +22,11 @@ interface PotAreaProps {
     setBoiledTeas: (fn: (prev: BoiledTea[]) => BoiledTea[]) => void;
 }
 
-export function PotArea({ potHerbs, setPotHerbs, setBoiledTeas }: PotAreaProps) {
+export const PotArea: React.FC<PotAreaProps> = ({ potHerbs, setPotHerbs, setBoiledTeas }) => {
     const [isFireOn, setIsFireOn] = useState(false);
     const [boilProgress, setBoilProgress] = useState(0); // 0~100
     const [isBoiled, setIsBoiled] = useState(false);
+    const [showBowl, setShowBowl] = useState(false);
     const [{ isOver }, dropRef] = useDrop({
         accept: 'HERB',
         drop: (item: { id: string }) => {
@@ -51,23 +53,29 @@ export function PotArea({ potHerbs, setPotHerbs, setBoiledTeas }: PotAreaProps) 
         } else {
             setIsFireOn(false);
             if (isBoiled) {
-                // 检查当前壶内药材是否为配方，若是则加入 boiledTeas
-                const recipe = matchRecipe(potHerbs);
-                if (recipe) {
-                    setBoiledTeas(prev => prev.some(t => t.name === recipe.name) ? prev : [...prev, { name: recipe.name, description: recipe.description }]);
-                } else if (potHerbs.length > 0) {
-                    // 自动生成自制涼茶名字
-                    const herbNames = potHerbs.map(id => {
-                        const herb = HERB_LIST.find(h => h.id === id);
-                        return herb ? herb.name : id;
-                    });
-                    const customName = `自制涼茶（${herbNames.join('、')}）`;
-                    setBoiledTeas(prev => prev.some(t => t.name === customName) ? prev : [...prev, { name: customName }]);
-                }
-                setPotHerbs(() => []);
+                // 煲茶完成且關火，顯示茶碗
+                setShowBowl(true);
             }
             setIsBoiled(false);
         }
+    }
+
+    // 點擊茶碗後服用，重置壺狀態
+    function handleDrink() {
+        // 收錄涼茶
+        const recipe = matchRecipe(potHerbs);
+        if (recipe) {
+            setBoiledTeas(prev => prev.some(t => t.name === recipe.name) ? prev : [...prev, { name: recipe.name, description: recipe.description }]);
+        } else if (potHerbs.length > 0) {
+            const herbNames = potHerbs.map(id => {
+                const herb = HERB_LIST.find(h => h.id === id);
+                return herb ? herb.name : id;
+            });
+            const customName = `自制涼茶（${herbNames.join('、')}）`;
+            setBoiledTeas(prev => prev.some(t => t.name === customName) ? prev : [...prev, { name: customName }]);
+        }
+        setPotHerbs(() => []);
+        setShowBowl(false);
     }
 
     return (
@@ -78,6 +86,8 @@ export function PotArea({ potHerbs, setPotHerbs, setBoiledTeas }: PotAreaProps) 
             <Steam isBoiled={isBoiled} />
             {isFireOn && potHerbs.length > 0 && !isBoiled && <ProgressBar progress={boilProgress} />}
             {tip && <PotTip>{tip}</PotTip>}
+            {/* 煲茶完成且關火後顯示茶碗，點擊服用 */}
+            <TeaBowl show={showBowl} onDrink={handleDrink} />
         </div>
     );
 }

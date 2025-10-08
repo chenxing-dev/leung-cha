@@ -1,0 +1,35 @@
+import { useState } from 'react';
+import '../styles/TeaBowl.css';
+
+/**
+ * 雞公碗像素涼茶元件
+ * - show: 是否顯示碗
+ * - onDrink: 點擊碗時觸發
+ */
+export const TeaBowl: React.FC<{ show: boolean; onDrink?: () => void }> = ({ show, onDrink }) => {
+    const [drinking, setDrinking] = useState(false);
+
+    // 點擊碗觸發服用動畫
+    const handleClick = () => {
+        if (!drinking && show) {
+            setDrinking(true);
+            setTimeout(() => {
+                setDrinking(false);
+                onDrink && onDrink();
+            }, 600); // 動畫時長
+        }
+    };
+
+    return show ? (
+        <img
+            src="/containers/rooster_bowl.png"
+            alt="雞公碗"
+            className={`w-32 aspect-ratio absolute bottom-16 left-1/2 -translate-x-1/2 transition-all duration-200 tea-bowl-in ${drinking ? 'tea-bowl-drink' : ''}`}
+            style={{ imageRendering: 'pixelated', cursor: !drinking ? 'pointer' : 'default' }}
+            onClick={handleClick}
+            draggable={false}
+        />
+    ) : null;
+};
+
+export default TeaBowl;
