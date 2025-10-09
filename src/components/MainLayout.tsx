@@ -25,7 +25,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ herbs, potHerbs, setPotH
                 <ShopTitle />
                 <PotArea potHerbs={potHerbs} setPotHerbs={setPotHerbs} setBoiledTeas={setBoiledTeas} />
             </div>
-            <div className="z-10 mr-8 my-6 flex flex-1">
+            <div id="recipe-info"
+                className="w-3/7 pr-8 py-8">
                 <RecipeInfo potHerbs={potHerbs} herbs={herbs} boiledTeas={boiledTeas} />
             </div>
         </main>

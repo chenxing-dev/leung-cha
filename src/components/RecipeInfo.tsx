@@ -12,7 +12,7 @@ export function RecipeInfo({ potHerbs, herbs, boiledTeas }: { potHerbs: string[]
         .filter(Boolean);
 
     return (
-        <ChineseFrame>
+        <ChineseFrame className="h-full">
             <div className="px-4 py-2">
                 <div className="flex flex-col w-full h-60 text-3xl">
                     <div className="flex items-center">

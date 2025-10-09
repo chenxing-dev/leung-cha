@@ -8,7 +8,7 @@ export const ChineseFrame: React.FC<{
     style?: React.CSSProperties;
     children: React.ReactNode;
 }> = ({ className = '', style = {}, children }) => (
-    <section className={`relative overflow-hidden p-3 w-full ${className}`} style={style}>
+    <section className={`relative overflow-hidden p-3 ${className}`} style={style}>
         {/* 四角紋樣 */}
         <img src="ui/corner_5x5.png" className="absolute left-0 top-0 w-5 h-5 pointer-events-none select-none" style={{ imageRendering: 'pixelated' }} />
         <img src="ui/corner_5x5.png" className="absolute right-0 top-0 w-5 h-5 pointer-events-none select-none rotate-90" style={{ imageRendering: 'pixelated' }} />
