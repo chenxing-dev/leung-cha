@@ -60,12 +60,12 @@ export const TeaBowl: React.FC<{ show: boolean; onDrink?: () => void }> = ({ sho
     <>
       <img
         src={bowlSprites[0]}
-        className={`w-48 aspect-ratio absolute bottom-0 left-1/2 -translate-x-1/2 blur-md scale-120 brightness-120 ${drinking ? "hidden" : ""}`}
+        className={`w-48 aspect-ratio absolute bottom-0 left-1/2 -translate-x-1/2 blur-md scale-120 brightness-120 z-40 ${drinking ? "hidden" : ""}`}
         draggable={false}
       />
       <img
         src={bowlSprites[Math.min(pouringStep, 3)]}
-        className={`w-48 aspect-ratio absolute bottom-0 left-1/2 -translate-x-1/2 transition-all duration-200 animate-tea-bowl-in ${pouringStep === 3 && !drinking ? "hover:scale-105" : ""}`}
+        className={`w-48 aspect-ratio absolute bottom-0 left-1/2 -translate-x-1/2 transition-all duration-200 animate-tea-bowl-in z-50 ${pouringStep === 3 && !drinking ? "hover:scale-105" : ""}`}
         style={{
           imageRendering: "pixelated",
           cursor: !drinking && pouringStep === 3 ? "pointer" : "default",
