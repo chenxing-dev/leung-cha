@@ -30,7 +30,11 @@
   ```bash
   npm run dev
   ```
-3. 打開瀏覽器訪問 `http://localhost:5173`。
+3. 執行程式碼檢查：
+  ```bash
+  npm run lint
+  ```
+4. 打開瀏覽器訪問 `http://localhost:5173`。
 
 ## Interactions
 
