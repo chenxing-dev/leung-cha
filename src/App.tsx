@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { HerbDragPreview } from './components/HerbDragPreview';
-import MainLayout from './components/MainLayout';
-import { type BoiledTea } from './components/PotArea';
+import { HerbDragPreview } from "./components/HerbDragPreview";
+import MainLayout from "./components/MainLayout";
+import { type BoiledTea } from "./components/PotArea";
 import ChineseFrame from "./components/ChineseFrame";
 import ShopTitle from "./components/ShopTitle";
 import { herbs } from "./constants/herbs";
 
-function App() {
+function App({ isTouchDevice }: { isTouchDevice: boolean }) {
   const [potHerbs, setPotHerbs] = useState<string[]>([]);
   const [boiledTeas, setBoiledTeas] = useState<BoiledTea[]>([]);
   const [screenTooSmall, setScreenTooSmall] = useState(false);
@@ -16,9 +16,10 @@ function App() {
     function checkSize() {
       setScreenTooSmall(window.innerWidth < 1024 || window.innerHeight < 648);
     }
+
     checkSize();
-    window.addEventListener('resize', checkSize);
-    return () => window.removeEventListener('resize', checkSize);
+    window.addEventListener("resize", checkSize);
+    return () => window.removeEventListener("resize", checkSize);
   }, []);
 
   if (screenTooSmall) {
@@ -28,7 +29,9 @@ function App() {
         <ChineseFrame className="mx-4 my-8">
           <div className="px-6 py-4">
             <p className="text-center text-2xl mb-2">螢幕過小</p>
-            <p className="text-xl text-center">請使用寬度大於1024px高度大於648px的螢幕進行體驗</p>
+            <p className="text-xl text-center">
+              請使用寬度大於1024px高度大於648px的螢幕進行體驗
+            </p>
           </div>
         </ChineseFrame>
       </div>
@@ -43,6 +46,7 @@ function App() {
     >
       <HerbDragPreview herbs={herbs} />
       <MainLayout
+        isTouchDevice={isTouchDevice}
         herbs={herbs}
         potHerbs={potHerbs}
         setPotHerbs={setPotHerbs}
