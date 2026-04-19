@@ -1,6 +1,6 @@
-import { herbs as HERB_LIST } from "../App";
+import { herbs as HERB_LIST } from "../constants/herbs";
 import { useState, useRef } from "react";
-import { useDrop } from 'react-dnd';
+import { type DropTargetMonitor, useDrop } from 'react-dnd';
 import Stove from "./pot/Stove";
 import Teapot from "./pot/Teapot";
 import Fire from "./pot/Fire";
@@ -32,7 +32,7 @@ export const PotArea: React.FC<PotAreaProps> = ({ potHerbs, setPotHerbs, setBoil
         drop: (item: { id: string }) => {
             setPotHerbs(prev => prev.includes(item.id) ? prev : [...prev, item.id]);
         },
-        collect: (monitor: any) => ({
+        collect: (monitor: DropTargetMonitor) => ({
             isOver: monitor.isOver(),
         }),
     });
