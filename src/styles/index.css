@@ -1,33 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap");
 @import "tailwindcss";
 @import "./flameSteam.css";
 @import "./teaBowlPour.css";
 
 @theme {
-    /* 全局字體 */
-    --font-serif: "Noto Serif TC", serif;
+  /* 全局字體 */
+  --font-serif: "Noto Serif TC", serif;
 
-    /* 中式卷轴/传统纹样 inspired palette */
-    --color-inkstone: #513b27;
-    /* rich brown-black */
-    --color-red: #7d3e28;
-    /* deep, warm red */
-    --color-gold: #bfa46f;
-    /* soft, faded gold */
-    --color-warm-gold: #c5a56e;
-    /* warm gold */
-    --color-mossy: #847b5a;
-    /* greyish-green */
-    --color-glow: #e3ca9c;
-    /* lantern glow */
-    --color-paper: #decbaa;
-    /* warm, creamy off-white */
-    --color-parchment: #d7bd8d;
-    /* more golden version of aged paper */
-    --color-scroll: #c4a67a;
-    /* pale, creamy color of scroll */
-    --color-sandalwood: #cda975;
-    /* 黃花梨 */
-    --color-bamboo-scroll: #b89261;
-    /* 竹簡 */
+  /* 中式卷轴/传统纹样 inspired palette */
+  --color-inkstone: #513b27;
+  /* rich brown-black */
+  --color-red: #7d3e28;
+  /* deep, warm red */
+  --color-gold: #bfa46f;
+  /* soft, faded gold */
+  --color-warm-gold: #c5a56e;
+  /* warm gold */
+  --color-mossy: #847b5a;
+  /* greyish-green */
+  --color-glow: #e3ca9c;
+  /* lantern glow */
+  --color-paper: #decbaa;
+  /* warm, creamy off-white */
+  --color-parchment: #d7bd8d;
+  /* more golden version of aged paper */
+  --color-scroll: #c4a67a;
+  /* pale, creamy color of scroll */
+  --color-sandalwood: #cda975;
+  /* 黃花梨 */
+  --color-bamboo-scroll: #b89261;
+  /* 竹簡 */
 }

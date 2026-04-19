@@ -1,67 +1,65 @@
 /* 雞公碗動畫 & 壺倒茶動畫（teaBowlPour.css） */
 @theme {
-    --animate-pour: teapot-pour-anim 2.5s ease-in-out;
-    --animate-tea-bowl-in: tea-bowl-in-anim 0.5s cubic-bezier(.5, 1.5, .5, 1) forwards;
-    --animate-drink: tea-bowl-drink-anim 1.5s;
+  --animate-pour: teapot-pour-anim 2.5s ease-in-out;
+  --animate-tea-bowl-in: tea-bowl-in-anim 0.5s cubic-bezier(0.5, 1.5, 0.5, 1) forwards;
+  --animate-drink: tea-bowl-drink-anim 1.5s;
 }
 
 @keyframes teapot-pour-anim {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
 
-    15% {
-        transform: translateX(8px) translateY(-32px);
-    }
+  15% {
+    transform: translateX(8px) translateY(-32px);
+  }
 
-    65% {
-        transform: rotate(-36deg) scale(1.08) translateX(72px) translateY(16px);
-    }
+  65% {
+    transform: rotate(-36deg) scale(1.08) translateX(72px) translateY(16px);
+  }
 
-    80% {
-        transform: rotate(-36deg) scale(1.08) translateX(72px) translateY(16px);
-    }
+  80% {
+    transform: rotate(-36deg) scale(1.08) translateX(72px) translateY(16px);
+  }
 
-    95% {
-        transform: translateX(8px) translateY(-8px);
-    }
+  95% {
+    transform: translateX(8px) translateY(-8px);
+  }
 
-    100% {
-        transform: rotate(0deg) scale(1);
-    }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
 }
 
 @keyframes tea-bowl-in-anim {
-    0% {
-        transform: scale(0.7);
-        filter: brightness(1.2);
-    }
+  0% {
+    transform: scale(0.7);
+    filter: brightness(1.2);
+  }
 
-    60% {
-        opacity: 1;
-        transform: scale(1.1);
-        filter: brightness(1.1);
-    }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: brightness(1.1);
+  }
 
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        filter: brightness(1);
-    }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
 }
 
-
-
 @keyframes tea-bowl-drink-anim {
-    0% {
-        transform: scale(1) translateY(0);
-    }
+  0% {
+    transform: scale(1) translateY(0);
+  }
 
-    50% {
-        transform: scale(3) translateY(-16px);
-    }
+  50% {
+    transform: scale(3) translateY(-16px);
+  }
 
-    100% {
-        transform: scale(5) translateY(108px);
-    }
+  100% {
+    transform: scale(5) translateY(108px);
+  }
 }

@@ -29,9 +29,7 @@ function App({ isTouchDevice }: { isTouchDevice: boolean }) {
         <ChineseFrame className="mx-4 my-8">
           <div className="px-6 py-4">
             <p className="text-center text-2xl mb-2">螢幕過小</p>
-            <p className="text-xl text-center">
-              請使用寬度大於1024px高度大於648px的螢幕進行體驗
-            </p>
+            <p className="text-xl text-center">請使用寬度大於1024px高度大於648px的螢幕進行體驗</p>
           </div>
         </ChineseFrame>
       </div>

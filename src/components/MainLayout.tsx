@@ -27,9 +27,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       <HerbList
         isTouchDevice={isTouchDevice}
         herbs={herbs}
-        onHerbSelect={(id) =>
-          setPotHerbs((prev) => (prev.includes(id) ? prev : [...prev, id]))
-        }
+        onHerbSelect={(id) => setPotHerbs((prev) => (prev.includes(id) ? prev : [...prev, id]))}
       />
     </aside>
     <DecorativeDivider />
@@ -37,11 +35,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       <GroundGrid />
       <div className="flex flex-col items-center justify-around w-4/7 relative">
         <ShopTitle />
-        <PotArea
-          potHerbs={potHerbs}
-          setPotHerbs={setPotHerbs}
-          setBoiledTeas={setBoiledTeas}
-        />
+        <PotArea potHerbs={potHerbs} setPotHerbs={setPotHerbs} setBoiledTeas={setBoiledTeas} />
       </div>
       <div id="recipe-info" className="w-3/7 pr-8 py-8">
         <RecipeInfo potHerbs={potHerbs} herbs={herbs} boiledTeas={boiledTeas} />

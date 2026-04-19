@@ -23,17 +23,23 @@
 ## 使用方法
 
 1. 安裝依賴：
-  ```bash
-  npm install
-  ```
+
+```bash
+npm install
+```
+
 2. 啟動開發伺服器：
-  ```bash
-  npm run dev
-  ```
+
+```bash
+npm run dev
+```
+
 3. 執行程式碼檢查：
-  ```bash
-  npm run lint
-  ```
+
+```bash
+npm run lint
+```
+
 4. 打開瀏覽器訪問 `http://localhost:5173`。
 
 ## Interactions
